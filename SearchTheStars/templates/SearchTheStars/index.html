@@ -1,0 +1,44 @@
+{% extends 'SearchTheStars/base.html' %}
+
+{% block title %}
+    Home - Exoplanet App
+{% endblock %}
+
+{% block content %}
+    <style>
+        .center-box {
+            max-width: 800px;
+            margin: 100px auto; /* Centers the box */
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
+            color: white; /* White text color */
+            font-size: 18px; /* Slightly larger font size */
+            line-height: 1.6; /* Spacing for readability */
+        }
+
+        h1 {
+            font-size: 32px; /* Larger heading font */
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Subtle text shadow for effect */
+        }
+
+        p {
+            font-size: 20px; /* Make paragraph text larger */
+        }
+    </style>
+
+    <div class="center-box">
+        <h1>Welcome to the Exoplanet Data App</h1>
+        <p>
+            In this project, we aim to unlock new methods of detecting signs of extraterrestrial life by analyzing exoplanetary transit data from the Kepler mission. The core concept is to search for subtle technosignatures — indications of advanced technology — by looking for distortions in the light curves of transiting exoplanets. These distortions could be caused by the presence of large satellite networks or other artificial structures orbiting the planet, leading to observable anomalies, such as fuzzy boundaries or elongations in the planet's appearance during transit.
+        </p>
+        <p>
+            Our goal is to develop accessible tools that allow researchers and citizen scientists alike to explore this data and identify potential technosignatures. By focusing on exoplanets with unusual transit characteristics, we hope to contribute to the ongoing search for extraterrestrial intelligence (SETI) and provide new insights into how advanced civilizations might alter their surrounding environments in ways detectable from Earth.
+        </p>
+        <p>
+            Use the navigation links above to explore the app.
+        </p>
+    </div>
+{% endblock %}

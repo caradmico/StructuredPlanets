@@ -1,0 +1,87 @@
+{% extends 'SearchTheStars/base.html' %}
+
+{% block title %}
+    Exoplanet Data
+{% endblock %}
+
+{% block content %}
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+        }
+
+        .star-table, .planet-table {
+            width: 45%;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background for readability */
+            color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+            text-align: left;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: rgba(255, 255, 255, 0.1); /* Lighter background for table headers */
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+    </style>
+
+    <h1>Exoplanet Data for {{ star_system }}</h1>
+    
+    <div class="container">
+        <!-- Star Information Table -->
+        <div class="star-table">
+            <h2>Star Information</h2>
+            <table>
+                <tr><th>Star System</th><td>{{ star_system }}</td></tr>
+                <tr><th>Number of Planets</th><td>{{ number_of_planets }}</td></tr>
+                <tr><th>Temperature</th><td>{{ star_temperature }}</td></tr>
+                <tr><th>Size</th><td>{{ star_size }}</td></tr>
+                <tr><th>Mass</th><td>{{ star_mass }}</td></tr>
+                <tr><th>Age</th><td>{{ star_age }}</td></tr>
+                <tr><th>RA/DEC</th><td>{{ ra_dec }}</td></tr>
+                <tr><th>System Note</th><td>{{ system_note }}</td></tr>
+                <tr><th>Discovery Date</th><td>{{ discovery_date }}</td></tr>
+                <tr><th>Last Update</th><td>{{ last_update }}</td></tr>
+            </table>
+        </div>
+
+        <!-- Planets Information Tables -->
+        <div class="planet-tables">
+            <h2>Planets</h2>
+            {% for planet in potential_planets %}
+                <div class="planet-table">
+                    <h3>Planet {{ planet.planet_number }}</h3>
+                    <table>
+                        <tr><th>Orbit</th><td>{{ planet.orbit }}</td></tr>
+                        <tr><th>Size</th><td>{{ planet.size }}</td></tr>
+                        <tr><th>Temperature</th><td>{{ planet.temperature }}</td></tr>
+                        <tr><th>Sunlight Received</th><td>{{ planet.sunlight_received }}</td></tr>
+                        <tr><th>Transit Duration</th><td>{{ planet.transit_duration }}</td></tr>
+                        <tr><th>Transit Depth</th><td>{{ planet.transit_depth }}</td></tr>
+                        <tr><th>Detection SNR</th><td>{{ planet.detection_snr }}</td></tr>
+                        <tr><th>Impact Parameter</th><td>{{ planet.impact_parameter }}</td></tr>
+                        <tr><th>Interesting Features</th><td>{{ planet.interesting_features|join:", " }}</td></tr>
+                    </table>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
